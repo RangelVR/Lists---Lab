@@ -13,7 +13,7 @@ namespace _05._Remove_Negatives_and_Reverse
                 .Select(double.Parse)
                 .ToList();
 
-            nums.RemoveAll(x => x < 0); //nums.RemoveAll(x => x < 0);
+            nums.RemoveAll(x => x < 0); 
             nums.Reverse();
 
             if (nums.Count == 0)
@@ -24,6 +24,7 @@ namespace _05._Remove_Negatives_and_Reverse
             {
                 Console.WriteLine(string.Join(" ", nums));
             }
+               
         }
     }
 }
