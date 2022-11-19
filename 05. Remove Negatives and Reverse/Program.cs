@@ -8,10 +8,15 @@ namespace _05.Remove_Negatives_and_Reverse
     {
         static void Main(string[] args)
         {
-            List<int> nums = Console.ReadLine().Split().Select(int.Parse).Reverse().ToList();
+            List<int> nums = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .Reverse()
+                .ToList();
+
             nums.RemoveAll(x => x < 0);
 
-            if (nums.Sum() > 0)
+            if (nums.Count > 0)
             {
                 Console.WriteLine(string.Join(" ", nums));
             }
