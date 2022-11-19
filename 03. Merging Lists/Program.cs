@@ -1,43 +1,42 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _03._Merging_Lists
+namespace _03.Merging_Lists
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<double> firstList = Console.ReadLine().Split(" ").Select(double.Parse).ToList();
-            List<double> secondList = Console.ReadLine().Split(" ").Select(double.Parse).ToList();
-            List<double> mergeList = new List<double>();
+            List<int> list1 = Console.ReadLine().Split().Select(int.Parse).ToList();
+            List<int> list2 = Console.ReadLine().Split().Select(int.Parse).ToList();
+            List<int> mergedList = new List<int>();
 
-            if (secondList.Count > firstList.Count )
+            if (list1.Count > list2.Count)
             {
-                for (int i = 0; i < firstList.Count; i++)
+                for (int i = 0; i < list2.Count; i++)
                 {
-                    mergeList.Add(firstList[i]);
-                    mergeList.Add(secondList[i]);
+                    mergedList.Add(list1[i]);
+                    mergedList.Add(list2[i]);
                 }
-                for (int i = firstList.Count; i < secondList.Count; i++)
+                for (int i = list2.Count; i < list1.Count; i++)
                 {
-                    mergeList.Add(secondList[i]);
+                    mergedList.Add(list1[i]);
                 }
             }
             else
             {
-                for (int i = 0; i < secondList.Count; i++)
+                for (int i = 0; i < list1.Count; i++)
                 {
-                    mergeList.Add(firstList[i]);
-                    mergeList.Add(secondList[i]);
+                    mergedList.Add(list1[i]);
+                    mergedList.Add(list2[i]);
                 }
-                for (int i = secondList.Count; i < firstList.Count; i++)
+                for (int i = list1.Count; i < list2.Count; i++)
                 {
-                    mergeList.Add(firstList[i]);
+                    mergedList.Add(list2[i]);
                 }
             }
-
-            Console.WriteLine(string.Join(" ", mergeList));
+            Console.WriteLine(string.Join(" ", mergedList));
         }
     }
 }
