@@ -1,49 +1,37 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _06._List_Manipulation_Basics
+namespace _06.List_Manipulation_Basics
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<int> nums = Console.ReadLine().Split().Select(int.Parse).ToList();
-            string command = Console.ReadLine();
+            List<string> nums = Console.ReadLine().Split().ToList();
+            string[] command = Console.ReadLine().Split().ToArray();
 
-            while (command != "end")
+            while (command[0] != "end")
             {
-                string[] arr = command.Split().ToArray();
-                string mainComm = arr[0];
-
-                switch (mainComm)
+                if (command.Contains("Add"))
                 {
-                    case "Add":
-                        int addNum = int.Parse(arr[1]);
-                        nums.Add(addNum);
-                        break;
-
-                    case "Remove":
-                        int remNum = int.Parse(arr[1]);
-                        nums.Remove(remNum);
-                        break;
-
-                    case "RemoveAt":
-                        int remAtIndex = int.Parse(arr[1]);
-                        nums.RemoveAt(remAtIndex);
-                        break;
-
-                    case "Insert":
-                        int insNum = int.Parse(arr[1]);
-                        int atIndex = int.Parse(arr[2]);
-                        nums.Insert(atIndex, insNum);
-                        break;
+                    nums.Add(command[1]);
                 }
-                command = Console.ReadLine();
+                else if (command.Contains("Remove"))
+                {
+                    nums.Remove(command[1]);
+                }
+                else if (command.Contains("RemoveAt"))
+                {
+                    nums.RemoveAt(int.Parse(command[1]));
+                }
+                else if (command.Contains("Insert"))
+                {
+                    nums.Insert(int.Parse(command[2]), command[1]);
+                }
+                command = Console.ReadLine().Split().ToArray();
             }
-
             Console.WriteLine(string.Join(" ", nums));
         }
-        
     }
 }
