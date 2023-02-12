@@ -1,5 +1,4 @@
 
-
 List<double> numbers = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(double.Parse)
@@ -13,4 +12,3 @@ if (numbers.Count == 0)
 }
 
 Console.WriteLine(string.Join(" ", numbers));
-
