@@ -1,29 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace _05.Remove_Negatives_and_Reverse
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            List<int> nums = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
+
+List<double> numbers = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse)
+                .Where(x => x > 0)
                 .Reverse()
                 .ToList();
 
-            nums.RemoveAll(x => x < 0);
-
-            if (nums.Count > 0)
-            {
-                Console.WriteLine(string.Join(" ", nums));
-            }
-            else
-            {
-                Console.WriteLine("empty");
-            }
-        }
-    }
+if (numbers.Count == 0)
+{
+    Console.WriteLine("empty");
 }
+
+Console.WriteLine(string.Join(" ", numbers));
+
