@@ -12,3 +12,4 @@ if (numbers.Count == 0)
 }
 
 Console.WriteLine(string.Join(" ", numbers));
+
