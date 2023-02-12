@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+List<int> input = Console.ReadLine().Split().Select(int.Parse).ToList();
 
-namespace _02._GaussTrick
+for (int i = 0; i < input.Count - 1; i++)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            List<double> nums = Console.ReadLine().Split().Select(double.Parse).ToList();
-
-            for (int i = 0; i < nums.Count - 1; i++)
-            {
-                nums[i] += nums[nums.Count - 1];
-                nums.RemoveAt(nums.Count - 1);
-            }
-            Console.WriteLine(string.Join(" ", nums));
-        }
-    }
+    input[i] += input[input.Count - 1];
+    input.RemoveAt(input.Count - 1);
 }
+
+Console.WriteLine(string.Join(" ", input));
