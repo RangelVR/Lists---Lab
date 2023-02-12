@@ -1,26 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace _04.List_of_Products
+int n = int.Parse(Console.ReadLine());
+List<string> products = new List<string>();
+string currProduct;
+
+for (int i = 0; i < n; i++)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            int n = int.Parse(Console.ReadLine());
-            List<string> productsList = new List<string>();
+    products.Add(currProduct = Console.ReadLine());
+}
 
-            for (int i = 0; i < n; i++)
-            {
-                string product = Console.ReadLine();
-                productsList.Add(product);
-            }
-            productsList.Sort();
-            for (int i = 1; i <= n; i++)
-            {
-                Console.WriteLine($"{i}.{productsList[i - 1]}");
-            }
-        }
-    }
+products.Sort();
+
+for (int k = 0; k < products.Count; k++)
+{
+    Console.WriteLine($"{k + 1}.{products[k]}");
 }
